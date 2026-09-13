@@ -16,7 +16,9 @@
   --white: #ffffff;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -25,16 +27,22 @@ body {
   font-family: "Montserrat", Arial, sans-serif;
 }
 
-button { font: inherit; }
+button {
+  font: inherit;
+}
 
 .page {
   width: min(100%, 760px);
   margin: 0 auto;
   background: var(--cream);
   min-height: 100vh;
-  box-shadow: 0 0 40px rgba(8,35,75,.08);
+  box-shadow: 0 0 40px rgba(8, 35, 75, .08);
   overflow: hidden;
 }
+
+/* =========================
+   CABEÇALHO
+   ========================= */
 
 .hero {
   position: relative;
@@ -42,9 +50,19 @@ button { font: inherit; }
   padding: 25px 26px 60px;
   color: white;
   overflow: hidden;
+
   background:
-    radial-gradient(circle at 90% 12%, rgba(78,215,189,.16) 0 3px, transparent 4px),
-    linear-gradient(145deg, #032b70 0%, #063b91 58%, #0750ad 100%);
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(78, 215, 189, .16) 0 3px,
+      transparent 4px
+    ),
+    linear-gradient(
+      145deg,
+      #032b70 0%,
+      #063b91 58%,
+      #0750ad 100%
+    );
 }
 
 .hero::before {
@@ -54,31 +72,48 @@ button { font: inherit; }
   height: 280px;
   right: -150px;
   top: 40px;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255, 255, 255, .12);
   border-radius: 50%;
 }
 
 .hero-top {
   position: relative;
   z-index: 2;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
+/* =========================
+   LOGO — CORRIGIDA
+   ========================= */
+
 .logo {
-  width: 125px;
+  width: 180px;
   height: 72px;
-  object-fit: cover;
-  object-position: left center;
+
+  /*
+    Mantém a imagem inteira dentro da área.
+    "cover" foi substituído por "contain"
+    para impedir que a logo seja cortada.
+  */
+  object-fit: contain;
+  object-position: center;
+
   border-radius: 8px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+
+  /*
+    Evita que a sombra fique exagerada
+    sobre a identidade visual.
+  */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
 }
 
 .hero-balloon {
   font-size: 54px;
   transform: rotate(8deg);
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,.18));
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .18));
 }
 
 .hero-content {
@@ -95,7 +130,9 @@ button { font: inherit; }
   letter-spacing: .16em;
 }
 
-.eyebrow { color: var(--cyan); }
+.eyebrow {
+  color: var(--cyan);
+}
 
 .hero h1 {
   margin: 8px 0 12px;
@@ -104,15 +141,19 @@ button { font: inherit; }
   letter-spacing: -.045em;
 }
 
-.hero h1 strong { color: var(--cyan); }
+.hero h1 strong {
+  color: var(--cyan);
+}
 
 .subtitle {
   max-width: 500px;
   margin: 0;
+
   font-size: 15px;
   line-height: 1.65;
   font-weight: 500;
-  color: rgba(255,255,255,.92);
+
+  color: rgba(255, 255, 255, .92);
 }
 
 .blue-wave {
@@ -121,17 +162,26 @@ button { font: inherit; }
   bottom: -42px;
   width: 110%;
   height: 80px;
+
   background: var(--cream);
+
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
+/* =========================
+   CARTÕES
+   ========================= */
 
 .card {
   margin: 18px;
   padding: 26px;
+
   background: var(--white);
+
   border: 1px solid var(--line);
   border-radius: 22px;
-  box-shadow: 0 8px 24px rgba(10,45,90,.045);
+
+  box-shadow: 0 8px 24px rgba(10, 45, 90, .045);
 }
 
 .section-kicker {
@@ -147,12 +197,21 @@ button { font: inherit; }
 
 .muted {
   margin: 0 0 20px;
+
   color: var(--muted);
+
   font-size: 13px;
   line-height: 1.5;
 }
 
-.qualities { display: grid; gap: 11px; }
+/* =========================
+   DIFERENCIAIS
+   ========================= */
+
+.qualities {
+  display: grid;
+  gap: 11px;
+}
 
 .quality {
   display: flex;
@@ -162,53 +221,78 @@ button { font: inherit; }
 
 .quality span {
   flex: 0 0 22px;
+
   width: 22px;
   height: 22px;
+
   display: grid;
   place-items: center;
+
   border-radius: 50%;
+
   background: var(--blue-light);
   color: var(--blue-mid);
+
   font-size: 13px;
   font-weight: 900;
 }
 
 .quality p {
   margin: 2px 0 0;
+
   font-size: 13px;
   line-height: 1.45;
   font-weight: 600;
 }
 
+/* =========================
+   FOTO DO POSTO
+   ========================= */
+
 .photo-section {
   position: relative;
+
   margin: 18px;
+
   overflow: hidden;
+
   border-radius: 22px;
+
   background: var(--blue-dark);
-  box-shadow: 0 10px 26px rgba(5,35,80,.12);
+
+  box-shadow: 0 10px 26px rgba(5, 35, 80, .12);
 }
 
 .station-photo {
   display: block;
+
   width: 100%;
   aspect-ratio: 16 / 9;
+
   object-fit: cover;
 }
 
 .photo-section::after {
   content: "";
+
   position: absolute;
   inset: 45% 0 0;
-  background: linear-gradient(transparent, rgba(0,18,55,.78));
+
+  background: linear-gradient(
+    transparent,
+    rgba(0, 18, 55, .78)
+  );
 }
 
 .photo-caption {
   position: absolute;
+
   z-index: 2;
+
   left: 20px;
   right: 20px;
   bottom: 17px;
+
   color: white;
 }
 
@@ -216,112 +300,173 @@ button { font: inherit; }
   font-size: 10px;
   font-weight: 900;
   letter-spacing: .15em;
+
   color: var(--cyan);
 }
 
 .photo-caption p {
   margin: 4px 0 0;
+
   font-size: 13px;
   font-weight: 700;
 }
 
+/* =========================
+   ENQUETE
+   ========================= */
+
 .survey-card h2,
 .prize-card h2 {
   margin: 0 0 8px;
+
   font-size: clamp(22px, 5vw, 30px);
   line-height: 1.12;
+
   letter-spacing: -.025em;
 }
 
 .rating-grid {
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
+
   gap: 10px;
 }
 
 .rating {
   min-height: 76px;
+
   border: 2px solid var(--line);
   border-radius: 15px;
+
   background: #fff;
+
   cursor: pointer;
+
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   padding: 12px;
+
   text-align: left;
+
   color: var(--ink);
+
   font-weight: 700;
   font-size: 13px;
+
   transition: .18s ease;
 }
 
 .rating:hover,
 .rating.selected {
   border-color: var(--blue-mid);
+
   transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(11,87,189,.13);
+
+  box-shadow: 0 7px 18px rgba(11, 87, 189, .13);
 }
 
-.rating.selected { background: var(--blue-light); }
+.rating.selected {
+  background: var(--blue-light);
+}
 
-.rating-icon { font-size: 24px; }
+.rating-icon {
+  font-size: 24px;
+}
 
 .privacy-note {
   margin: 18px 0 0;
+
   color: #8a96a8;
+
   font-size: 10px;
   line-height: 1.45;
 }
 
+/* =========================
+   BALÕES
+   ========================= */
+
 .balloons {
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
+
   gap: 22px;
+
   padding: 12px 8px 4px;
 }
 
 .balloon-choice {
   border: 0;
   background: transparent;
+
   cursor: pointer;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 12px;
 }
 
 .balloon {
   position: relative;
+
   width: 125px;
   height: 155px;
+
   display: grid;
   place-items: center;
+
   border-radius: 50% 50% 47% 47%;
+
   color: white;
+
   font-size: 42px;
   font-weight: 900;
-  box-shadow: inset -16px -18px 22px rgba(0,0,0,.13), inset 10px 8px 14px rgba(255,255,255,.3), 0 12px 18px rgba(0,0,0,.12);
+
+  box-shadow:
+    inset -16px -18px 22px rgba(0, 0, 0, .13),
+    inset 10px 8px 14px rgba(255, 255, 255, .3),
+    0 12px 18px rgba(0, 0, 0, .12);
+
   transition: transform .2s ease;
 }
 
 .balloon::before {
   content: "";
+
   position: absolute;
+
   width: 16px;
   height: 10px;
+
   bottom: -5px;
   left: calc(50% - 8px);
+
   background: inherit;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
 }
 
 .balloon::after {
   content: "";
+
   position: absolute;
+
   width: 3px;
   height: 62px;
+
   bottom: -63px;
+
   background: #8290a5;
 }
 
@@ -330,152 +475,280 @@ button { font: inherit; }
 }
 
 .balloon-blue {
-  background: radial-gradient(circle at 32% 22%, #8ab9ff 0 7%, transparent 8%), linear-gradient(135deg, #1670e8, #063b91);
+  background:
+    radial-gradient(
+      circle at 32% 22%,
+      #8ab9ff 0 7%,
+      transparent 8%
+    ),
+    linear-gradient(
+      135deg,
+      #1670e8,
+      #063b91
+    );
 }
 
 .balloon-light {
-  background: radial-gradient(circle at 32% 22%, #e8ffff 0 7%, transparent 8%), linear-gradient(135deg, #69e4d0, #149f91);
+  background:
+    radial-gradient(
+      circle at 32% 22%,
+      #e8ffff 0 7%,
+      transparent 8%
+    ),
+    linear-gradient(
+      135deg,
+      #69e4d0,
+      #149f91
+    );
 }
 
 .balloon-label {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: .12em;
+
   color: var(--blue-dark);
 }
+
+/* =========================
+   RESULTADO DO PRÊMIO
+   ========================= */
 
 .reveal {
   margin: 18px;
   padding: 34px 24px;
+
   text-align: center;
+
   border-radius: 24px;
+
   color: white;
-  background: linear-gradient(145deg, #032b70, #0750ad);
-  box-shadow: 0 14px 30px rgba(5,50,120,.2);
+
+  background:
+    linear-gradient(
+      145deg,
+      #032b70,
+      #0750ad
+    );
+
+  box-shadow: 0 14px 30px rgba(5, 50, 120, .2);
 }
 
 .reveal-emoji {
   font-size: 48px;
+
   margin-bottom: 10px;
+
   animation: pop .55s ease;
 }
 
 .reveal h2 {
   margin: 6px 0 4px;
+
   font-size: 15px;
   letter-spacing: .08em;
 }
 
 .prize-name {
   margin: 5px 0 15px;
+
   color: var(--cyan);
+
   font-size: clamp(27px, 7vw, 42px);
+
   font-weight: 900;
 }
 
 .reveal p {
   margin: 0 auto 16px;
+
   max-width: 470px;
+
   font-size: 13px;
   line-height: 1.55;
 }
 
 .reveal small {
   display: block;
+
   margin-top: 10px;
-  color: rgba(255,255,255,.72);
+
+  color: rgba(255, 255, 255, .72);
+
   font-size: 10px;
 }
 
 .code {
   display: inline-block;
+
   padding: 9px 14px;
+
   border-radius: 10px;
-  background: rgba(0,0,0,.18);
+
+  background: rgba(0, 0, 0, .18);
+
   font-size: 12px;
   font-weight: 800;
+
   letter-spacing: .08em;
 }
 
+/* =========================
+   RODAPÉ
+   ========================= */
+
 .final-message {
   padding: 36px 26px 48px;
+
   text-align: center;
 }
 
+/*
+  Logo do rodapé também fica inteira.
+*/
+
 .footer-logo {
-  width: 135px;
+  width: 170px;
   height: 62px;
-  object-fit: cover;
-  object-position: left center;
+
+  object-fit: contain;
+  object-position: center;
+
   border-radius: 7px;
+
   margin-bottom: 6px;
 }
 
 .final-message p {
   margin: 8px auto 0;
+
   color: #657186;
+
   font-size: 12px;
   line-height: 1.75;
 }
 
-.final-message strong { color: var(--blue-dark); }
+.final-message strong {
+  color: var(--blue-dark);
+}
 
-.hidden { display: none !important; }
+/* =========================
+   ELEMENTOS AUXILIARES
+   ========================= */
+
+.hidden {
+  display: none !important;
+}
 
 .toast {
   position: fixed;
+
   left: 50%;
   bottom: 20px;
+
   transform: translate(-50%, 30px);
+
   opacity: 0;
+
   pointer-events: none;
+
   z-index: 10;
+
   max-width: calc(100% - 30px);
+
   padding: 12px 16px;
+
   border-radius: 12px;
+
   background: var(--blue-dark);
+
   color: white;
+
   font-size: 12px;
   font-weight: 600;
+
   transition: .25s ease;
 }
 
 .toast.show {
   opacity: 1;
+
   transform: translate(-50%, 0);
 }
 
+/* =========================
+   ANIMAÇÃO
+   ========================= */
+
 @keyframes pop {
-  0% { transform: scale(.4); opacity: 0; }
-  70% { transform: scale(1.12); opacity: 1; }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(.4);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
+/* =========================
+   CELULARES
+   ========================= */
+
 @media (max-width: 460px) {
+
   .hero {
     min-height: 335px;
+
     padding: 22px 20px 55px;
   }
 
   .hero-content {
     margin-top: 62px;
+
     padding-right: 30px;
   }
 
-  .hero-balloon { font-size: 48px; }
+  .hero-balloon {
+    font-size: 48px;
+  }
 
-  .logo { width: 115px; height: 64px; }
+  /*
+    No celular reduzimos um pouco a logo,
+    mas continuamos mostrando a imagem inteira.
+  */
+
+  .logo {
+    width: 150px;
+    height: 64px;
+
+    object-fit: contain;
+    object-position: center;
+  }
 
   .card,
   .photo-section {
     margin: 14px;
   }
 
-  .card { padding: 22px 18px; }
+  .card {
+    padding: 22px 18px;
+  }
 
   .balloon {
     width: 105px;
     height: 132px;
+
     font-size: 35px;
+  }
+
+  .footer-logo {
+    width: 150px;
+    height: 58px;
   }
 }
