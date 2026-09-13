@@ -36,6 +36,7 @@ document.querySelectorAll(".balloon-choice").forEach(button => {
     if (!selectedRating || isCooldownActive()) return;
 
     const prize = button.dataset.prize;
+    const participacao = button.dataset.balloon;
     const startedAt = Date.now();
     const expiresAt = startedAt + COOLDOWN_MS;
 
