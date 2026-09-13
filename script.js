@@ -165,7 +165,7 @@ function showToast(message) {
 }
 
 async function enviarAvaliacao(avaliacao, premio, participacao) {
-  const url = "https://script.google.com/macros/s/AKfycbyt11ogaF4YIcAlHOfImkegFk7Gs6DJIBDQwqvywFFJtvVt0tqqhDZbR2MNGerqLFYy9g/exec";
+  const url = "SUA_URL_DO_WEB_APP/exec";
 
   const dados = {
     avaliacao: avaliacao,
