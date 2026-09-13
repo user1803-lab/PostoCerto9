@@ -89,10 +89,42 @@ function lockParticipation() {
   surveySection.classList.add("hidden");
   prizeSection.classList.add("hidden");
 
-  document.querySelectorAll(".balloon-choice").forEach(item => {
-    item.disabled = true;
-    item.style.pointerEvents = "none";
+  document.querySelectorAll(".balloon-choice").forEach(button => {
+  button.addEventListener("click", () => {
+    if (!selectedRating || isCooldownActive()) return;
+
+    const prize = button.dataset.prize;
+    const participacao = button.dataset.balloon;
+    const startedAt = Date.now();
+    const expiresAt = startedAt + COOLDOWN_MS;
+
+    prizeName.textContent = `Você ganhou uma ${prize.toLowerCase()}!`;
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      rating: selectedRating,
+      prize,
+      startedAt,
+      expiresAt
+    }));
+
+    enviarAvaliacao(
+      selectedRating,
+      prize,
+      participacao
+    );
+
+    lockParticipation();
+    reveal.classList.remove("hidden");
+    startCountdown(expiresAt);
+
+    setTimeout(() => {
+      reveal.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 100);
   });
+});
 }
 
 function unlockParticipation() {
