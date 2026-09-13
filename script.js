@@ -157,6 +157,31 @@ function showToast(message) {
   setTimeout(() => toast.classList.remove("show"), 3000);
 }
 
+async function enviarAvaliacao(avaliacao, premio, participacao) {
+  const url = "https://script.google.com/macros/s/AKfycbyt11ogaF4YIcAlHOfImkegFk7Gs6DJIBDQwqvywFFJtvVt0tqqhDZbR2MNGerqLFYy9g/exec";
+
+  const dados = {
+    avaliacao: avaliacao,
+    premio: premio,
+    participacao: participacao
+  };
+
+  try {
+    await fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(dados)
+    });
+
+    console.log("Avaliação enviada para o Google Sheets.");
+  } catch (erro) {
+    console.error("Erro ao enviar avaliação:", erro);
+  }
+}
+
 // Ao abrir ou atualizar a página, verifica se ainda existe uma participação
 // dentro dos 5 minutos. Assim o cliente não consegue jogar novamente apenas
 // recarregando o navegador.
