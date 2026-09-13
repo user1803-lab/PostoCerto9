@@ -51,6 +51,12 @@ document.querySelectorAll(".balloon-choice").forEach(button => {
       expiresAt
     }));
 
+    enviarAvaliacao(
+      selectedRating,
+      prize,
+      participacao
+    );
+
     lockParticipation();
     reveal.classList.remove("hidden");
     startCountdown(expiresAt);
