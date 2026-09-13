@@ -3,7 +3,6 @@ const surveySection = document.querySelector(".survey-card");
 const prizeSection = document.getElementById("prizeSection");
 const reveal = document.getElementById("reveal");
 const prizeName = document.getElementById("prizeName");
-const timerElement = document.getElementById("timer");
 const toast = document.getElementById("toast");
 
 const STORAGE_KEY = "postoCerto09Participacao";
@@ -119,7 +118,6 @@ function startCountdown(expiresAt) {
     const remaining = Number(expiresAt) - Date.now();
 
     if (remaining <= 0) {
-      timerElement.textContent = "00:00";
       unlockParticipation();
       showToast("Você já pode participar novamente!");
       return;
@@ -129,7 +127,6 @@ function startCountdown(expiresAt) {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
 
-    timerElement.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
 
   update();
